@@ -5,9 +5,8 @@
 
     <PlayersList></PlayersList>
 
-    <ul>
-<!--      <li v-for="(question, index) in questions" :key="index">Q: {{ question.attributes.question }}</li>-->
-    </ul>
+    <NuxtLink to="game">Start game</NuxtLink>
+
   </div>
 
 </template>
@@ -15,19 +14,6 @@
 <script>
 export default {
   name: 'IndexPage',
-  data() {
-    return {
-      questions: []
-    }
-  },
-  created() {
-    this.getQuestion()
-  },
-  methods: {
-    async getQuestion() {
-      const questions = await this.$axios.$get('http://localhost:1337/api/questions');
-      this.questions = questions.data
-    }
-  },
+
 }
 </script>
