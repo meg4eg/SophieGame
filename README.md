@@ -1,3 +1,4 @@
 # SophieGame
 
 ## Init
+yarn
