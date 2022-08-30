@@ -1,4 +1,5 @@
 # SophieGame
 
 ## Init
-yarn
+
+10 вопросов 
