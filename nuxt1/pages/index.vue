@@ -1,9 +1,6 @@
 <template>
   <div>
     <h1>SophieGame</h1>
-    <AddPlayer></AddPlayer>
-
-    <PlayersList></PlayersList>
 
     <NuxtLink to="game">Start game</NuxtLink>
 

@@ -1,23 +1,27 @@
-import addPlayer from "~/components/AddPlayer";
-
 export const state = () => ({
-  players: []
+  shuffleQuestions: [],
 })
 
 export const getters = {
-  getPlayers(state) {
-    return state.players
+  allQuestions(state) {
+    return state.shuffleQuestions
+  },
+  slicedQuestions(state) {
+    return state.shuffleQuestions.slice(0, 10)
   }
 }
 
 export const actions = {
-  addPlayer(context, player) {
-    context.commit('addPlayerToState', player)
+  async getQuestion(context) {
+    const questions = await this.$axios.$get('http://localhost:1337/api/questions');
+
+    context.commit('updateQuestions', questions.data)
   }
 }
 
 export const mutations = {
-  addPlayerToState(state, player) {
-    state.players.push(player)
-  }
+  updateQuestions(state, questions) {
+    state.shuffleQuestions = questions.sort(() => 0.5 - Math.random());
+  },
+
 }
